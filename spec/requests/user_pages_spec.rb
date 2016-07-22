@@ -30,11 +30,20 @@ describe "User pages" do
   
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:task1) { FactoryGirl.create(:task, user: user, content: "Tra") }
+    let!(:task2) { FactoryGirl.create(:task, user: user, content: "La la") }
+
     before { visit user_path(user) }
 
     it { should have_title(user.name) }
     it { should have_content(user.name) }
     it { should have_content(user.email) }
+
+    describe "tasks" do
+      it { should have_content(task1.content) }
+      it { should have_content(task2.content) }
+      it { should have_content(user.tasks.count) }
+    end
   end
 
   describe "signup page" do

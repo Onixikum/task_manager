@@ -1,5 +1,5 @@
 namespace :db do
-  desc "Fill database with food data"
+  desc "Fill database with task_manager data"
   task populate: :environment do
     User.create!(name: "User",
                  email: "user@mail.com",
@@ -13,6 +13,11 @@ namespace :db do
                    email: email,
                    password: password,
                    password_confirmation: password)
+    end
+    users = User.all(limit: 10)
+    50.times do
+      content = Faker::Lorem.sentence(5)
+      users.each { |user| user.tasks.create!(content: content) }
     end
   end
 end

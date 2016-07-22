@@ -1,0 +1,11 @@
+<%= form_for(@task) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Add new task..." %>
+  </div>
+  <% if @task.content.nil? %>
+    <%= f.submit "Task create!", class: "btn btn-large btn-primary" %>
+  <% else %>
+    <%= f.submit "Task update!", class: "btn btn-large btn-primary" %>
+  <% end %>
+<% end %>

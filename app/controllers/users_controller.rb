@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < ApplicationController #:nodoc:
   before_action :signed_in_user, only: [:index, :edit, :update]
   before_action :correct_user,   only: [:edit, :update]
 
@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @tasks = @user.tasks.paginate(page: params[:page])
   end
 
   def new
@@ -18,10 +19,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Task Manager"
+      flash[:success] = 'Welcome to the Task Manager'
       redirect_to @user
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -32,10 +33,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = 'Profile updated'
       redirect_to @user
     else
-      render 'edit'
+      render :edit
     end
   end
 

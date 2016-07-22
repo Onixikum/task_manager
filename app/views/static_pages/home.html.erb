@@ -1,7 +1,19 @@
-<div class="center hero-unit">
-
-<h1>Welcom to the Task Manager</h1>
-
-<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-
-</div>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %><br>
+        <%= link_to "Add new task", new_task_path, class: "btn btn-large btn-primary" %>
+      </section>
+    </aside>
+    <div class="span8">
+      <h3>All tasks</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcom to the Task Manager</h1>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>

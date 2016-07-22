@@ -5,4 +5,9 @@ FactoryGirl.define do
     password              "xxxxxxxx"
     password_confirmation "xxxxxxxx"
   end
+
+  factory :task do
+    content "Tra la la"
+    user
+  end
 end

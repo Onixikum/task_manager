@@ -1,4 +1,5 @@
-class User < ActiveRecord::Base
+class User < ActiveRecord::Base #:nodoc:
+  has_many :tasks
   before_save { email.downcase! }
   before_create :create_remember_token
   validates :name, presence: true, length: { maximum: 25 }
@@ -16,9 +17,13 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def feed
+    Task.where('user_id = ?', id)
+  end
+
   private
 
-    def create_remember_token
-      self.remember_token = User.encrypt(User.new_remember_token)
-    end
+  def create_remember_token
+    self.remember_token = User.encrypt(User.new_remember_token)
+  end
 end

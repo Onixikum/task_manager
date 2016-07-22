@@ -16,6 +16,8 @@ group :development, :test do
   gem 'guard-spork', '>=1.5.0'
   gem 'childprocess', '>=0.5.9'
   gem 'multi_test', '>=0.1.2'
+  gem 'rubocop', require: false
+  gem 'guard-rubocop'
 end
 
 group :test do

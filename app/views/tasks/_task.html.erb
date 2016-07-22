@@ -1,0 +1,7 @@
+<li>
+  <span class="content"><%= wrap("#{task.content}") %></span>
+  <span class="timestamp">
+    Published <%= time_ago_in_words(task.updated_at) %> ago.
+  </span>
+    <%= render 'shared/operation_user_task', object: task %>
+</li>
