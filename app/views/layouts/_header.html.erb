@@ -7,7 +7,6 @@
           <li><%= link_to "Home", root_path %></li>
 
           <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
             <li><%= link_to "I perform...(#{current_user.followed_tasks.count})", perform_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href='#' class="dropdown-toggle" data-toggle="dropdown">
