@@ -1,9 +1,15 @@
 <h1>
-  <i class="icon-user"></i>
-  <b><%= "#{current_user.name}" %></b>
+  <b>
+    <i class="icon-user"></i>
+    <%= "#{current_user.name}" %>
+  </b><br>
+  <b>
+    <i class="icon-envelope"></i>
+    <%= "#{current_user.email}" %>
+  </b>
 </h1>
 <span>
-  <%= link_to "view my profile", current_user, class: 'btn btn-small' %>
+  <%= link_to "View my profile", current_user, class: 'btn btn-small' %>
 </span>
 <span>
   <i class="icon-tasks"></i>

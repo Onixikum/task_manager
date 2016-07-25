@@ -1,4 +1,6 @@
 <%= form_for(current_user.relationships.find_by(task_id: object),
               html: { method: :delete }) do |f| %>
+  <span style="float: right">
   <%= f.submit "Refuse", class: "btn btn-danger btn-small" %>
+  </span>
 <% end %>

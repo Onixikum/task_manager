@@ -1,4 +1,6 @@
 <%= form_for(current_user.relationships.build(task_id: object.id)) do |f| %>
   <div><%= f.hidden_field :task_id %></div>
+  <span style="float: right">
   <%= f.submit "Implementation", class: "btn btn-large btn-success btn-small" %>
+  </span>
 <% end %>

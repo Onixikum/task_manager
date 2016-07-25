@@ -1,5 +1,5 @@
 <% if current_user?(object.user) %>
-  <span>
+  <span style="float: right">
   <%= link_to "edit", edit_task_path(object), class: "btn btn-warning btn-small" %>
   <%= link_to "delete", object, method: :delete,
                                 data: { confirm: "You shure?" },
