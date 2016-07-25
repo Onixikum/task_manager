@@ -1,17 +1,14 @@
 <h1>
   <b>
-    <i class="icon-user"></i>
     <%= "#{current_user.name}" %>
   </b><br>
   <b>
-    <i class="icon-envelope"></i>
     <%= "#{current_user.email}" %>
   </b>
 </h1>
 <span>
-  <%= link_to "View my profile", current_user, class: 'btn btn-small' %>
+  <%= pluralize(current_user.tasks.count, "task") %>
 </span>
 <span>
-  <i class="icon-tasks"></i>
-  <%= pluralize(current_user.tasks.count, "task") %>
+  <%= link_to "View my profile", current_user, class: 'btn btn-small' %>
 </span>
