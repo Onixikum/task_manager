@@ -1,0 +1,14 @@
+<% provide(:title, 'I perform') %>
+
+ <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %><br>
+        <%= link_to "Add new task", new_task_path, class: "btn btn-large btn-primary" %>
+      </section>
+    </aside>
+    <div class="span8">
+      <h3>Perform tasks (<%= "#{current_user.followed_tasks.count}" %>)</h3>
+      <%= render partial: 'shared/feed', object: @feed_items %>
+    </div>
+  </div>

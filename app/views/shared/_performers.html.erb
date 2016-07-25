@@ -1,0 +1,6 @@
+<span class="user">
+Performers: <%= "(#{object.followers.count})" %>
+<% object.followers.each do |user| %>
+<%= link_to "#{user.name};", user_path(user) %>
+<% end %>
+</span>

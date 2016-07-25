@@ -7,6 +7,7 @@
   </span>
   <span class="timestamp">
     Published <%= time_ago_in_words(feed_item.updated_at) %> ago.
-  </span>
+  </span><br>
     <%= render 'shared/operation_user_task', object: feed_item %>
+    <%= render 'shared/performers', object: feed_item %>
 </li>

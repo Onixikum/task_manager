@@ -17,6 +17,10 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:tasks) }
   it { should respond_to(:feed) }
+  it { should respond_to(:relationships) }
+  it { should respond_to(:followed_tasks) }
+  it { should respond_to(:reverse_relationships) }
+  it { should respond_to(:followers) }
 
   it { should be_valid }
 

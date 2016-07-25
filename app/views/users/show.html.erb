@@ -3,14 +3,16 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= @user.name %><br>
-        <%= @user.email %>
+        <i class="icon-user"></i>
+        <b><%= @user.name %></b>
       </h1>
     </section>
   </aside>
   <div class="span8">
     <% if @user.tasks.any? %>
+      <ol>
       <h3>Tasks (<%= @user.tasks.count %>)</h3>
+      </ol>
       <ol class="tasks">
         <%= render @tasks %>
       </ol>
